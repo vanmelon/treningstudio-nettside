@@ -11,15 +11,15 @@
     <nav>
       <div class="navbar">
         <div class="nav-left">
-          <div class="nav-box"><a href="log-inn.php" class="nav-link">Logg Inn</a></div>
-          <div class="nav-box"><a href="Bli-Medlem.php" class="nav-link">Bli Medlem</a></div>
+          <div class="nav-box"><a href="index.php" class="nav-link">home</a></div>
         </div>
         <div class="nav-center">
           <div class="nav-box"><a href="#" class="nav-link">Lokasjoner</a></div>
           <div class="nav-box"><a href="#" class="nav-link">About Us</a></div>
         </div>
         <div class="nav-right">
-          <div class="nav-box"><a href="#" class="nav-link">Kontakt</a></div>
+          <div class="nav-box"><a href="log-inn.php" class="nav-link">Logg Inn</a></div>
+          <div class="nav-box"><a href="Bli-Medlem.php" class="nav-link">Bli Medlem</a></div>
         </div>
       </div>
     </nav>
