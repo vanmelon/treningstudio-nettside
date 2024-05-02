@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INDEX</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        main {
+            text-align: center;
+        }
+
+        .register-box {
+            width: 300px;
+            margin: 0 auto;
+            border: 2px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
 <header>
@@ -25,14 +38,19 @@
     </nav>
   </header>
 
-<h1> Ikke brukernavn? Registrer deg: </h1>
-<form method="post">
-    <label>epost: <input type="email" name="email"></label>
-    <label>Passord: <input type="password" name="password"></label>
-    <input type="submit" name="register" value="registrer">
-</form>
-<br>
+<main>
+    <div class="register-box">
+        <h1>Ikke brukernavn? Registrer deg:</h1>
+        <form method="post">
+            <label>E-post: <input type="email" name="email"></label> <br>
+            <label>Passord: <input type="password" name="password"></label> <br>
+            <input type="submit" name="register" value="Registrer">
+        </form>
+    </div>
+</main>
 
+<footer>
+</footer>
 
 <?php
 session_start();

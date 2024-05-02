@@ -1,5 +1,4 @@
 /* styles.css */
-
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -45,4 +44,28 @@ body {
     padding: 10px 0;
     text-align: center;
   }
+
+  .image-grid .image-container {
+    flex: 0 0 30%; /* Setter bredde på 30% av foreldreelementet */
+    margin-bottom: 20px;
+  }
   
+  .image-grid .image-container img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .image-grid .image-container p {
+    margin-top: 10px;
+  }
+main {
+    text-align: center;
+}
+
+.login-box {
+    width: 300px;
+    margin: 0 auto;
+    border: 2px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+}

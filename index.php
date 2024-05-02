@@ -25,11 +25,27 @@
     </nav>
   </header>
 
-  <main>
-    <!-- Her kan du legge til innholdet ditt -->
-  </main>
+  <main class="image-grid">
+  <div class="image-container">
+    <img src="bilder/alina-chernysheva-JA2S6sJWleg-unsplash.jpg" alt="Bilde 1" style="max-width: 30%; height: auto;">
+    <p>Tekst for bilde 1</p>
+  </div>
+  <div class="image-container">
+    <img src="bilder/danielle-cerullo-CQfNt66ttZM-unsplash.jpg" alt="Bilde 1" style="max-width: 30%; height: auto;">
+    <p>Tekst for bilde 2</p>
+  </div>
+  <div class="image-container">
+    <img src="bilder/sushil-ghimire-5UbIqV58CW8-unsplash.jpg" alt="Bilde 1" style="max-width: 30%; height: auto;">
+    <p>Tekst for bilde 3</p>
+  </div>
+</main>
+
+
 
   <footer>
   </footer>
 </body>
 </html>
+
+
+

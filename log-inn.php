@@ -9,39 +9,38 @@
 <body>
 <header>
     <nav>
-      <div class="navbar">
-        <div class="nav-left">
-          <div class="nav-box"><a href="index.php" class="nav-link">home</a></div>
+        <div class="navbar">
+            <div class="nav-left">
+                <div class="nav-box"><a href="index.php" class="nav-link">home</a></div>
+            </div>
+            <div class="nav-center">
+                <div class="nav-box"><a href="#" class="nav-link">Lokasjoner</a></div>
+                <div class="nav-box"><a href="#" class="nav-link">About Us</a></div>
+            </div>
+            <div class="nav-right">
+                <div class="nav-box"><a href="log-inn.php" class="nav-link">Logg Inn</a></div>
+                <div class="nav-box"><a href="Bli-Medlem.php" class="nav-link">Bli Medlem</a></div>
+            </div>
         </div>
-        <div class="nav-center">
-          <div class="nav-box"><a href="#" class="nav-link">Lokasjoner</a></div>
-          <div class="nav-box"><a href="#" class="nav-link">About Us</a></div>
-        </div>
-        <div class="nav-right">
-          <div class="nav-box"><a href="log-inn.php" class="nav-link">Logg Inn</a></div>
-          <div class="nav-box"><a href="Bli-Medlem.php" class="nav-link">Bli Medlem</a></div>
-        </div>
-      </div>
     </nav>
-  </header>
-    
-  <main>
-<h1> Logg inn: </h1>
-<form method="post">
-    <label>epost: <input type="email" name="epost"></label>
-    <label>Passord: <input type="password" name="password"></label>
-    <input type="submit" name="login" value="Logg inn">
-</form>
+</header>
 
-<H1>er ikke medlem?
-    <br>
-   <div>registrer deg <a href="Bli-medlem.php" class="nav-link"> her</a></div>
-</H1>
-    </main>
+<main>
+    <div class="login-box">
+        <h1>Logg inn:</h1>
+        <form method="post">
+            <label>epost: <input type="email" name="epost"></label> <br>
+            <label>Passord: <input type="password" name="password"></label> <br>
+            <input type="submit" name="login" value="Logg inn">
+        </form>
 
-    <footer>
-        
-    </footer>
+        <h1>Er ikke medlem?</h1>
+        <div id="tekst">Registrer deg <a href="Bli-medlem.php" class="nav-link"> her</a></div>
+    </div>
+</main>
+
+<footer>
+</footer>
 
 <?php
 session_start();
@@ -74,7 +73,7 @@ if (isset($_POST['login'])) {
         $_SESSION['user_epost'] = $user['epost'];
         header("Location: dashboard.php");
         exit;
-        //hvis brukeren skrev noe feil 
+        //hvis brukeren skrev noe feil
     } else {
         echo "Feil brukernavn eller passord.";
     }
