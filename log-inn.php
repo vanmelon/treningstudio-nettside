@@ -24,7 +24,8 @@
       </div>
     </nav>
   </header>
-
+    
+  <main>
 <h1> Logg inn: </h1>
 <form method="post">
     <label>epost: <input type="email" name="epost"></label>
@@ -36,6 +37,11 @@
     <br>
    <div>registrer deg <a href="Bli-medlem.php" class="nav-link"> her</a></div>
 </H1>
+    </main>
+
+    <footer>
+        
+    </footer>
 
 <?php
 session_start();
