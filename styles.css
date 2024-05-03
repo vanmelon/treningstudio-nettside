@@ -59,14 +59,3 @@ body {
   .image-grid .image-container p {
     margin-top: 10px;
   }
-
-/* boksene i log inn og registrer deg*/
-  .register-box {
-    width: 300px;
-    margin: 0 auto;
-    border: 2px solid #ccc;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 19%;
-    margin-bottom: 19% ;
-}

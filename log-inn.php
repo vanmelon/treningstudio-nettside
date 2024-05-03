@@ -5,6 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log-Inn</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        main {
+            text-align: center;
+        }
+
+        .register-box {
+            width: 300px;
+            margin: 0 auto;
+            border: 2px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 16%;
+            margin-bottom: 16% ;
+        }
+        #tekst {
+            background-color: #0056b3;
+            color: white;
+            padding: 3px;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
 <header>
@@ -35,7 +56,7 @@
         </form>
 
         <h1>Er ikke medlem?</h1>
-        <div id="tekst">Registrer deg <a href="Bli-medlem.php" class="nav-link"> her</a></div>
+        <div id="tekst"><a href="Bli-medlem.php" class="nav-link">Registrer deg her</a></div>
     </div>
 </main>
 
