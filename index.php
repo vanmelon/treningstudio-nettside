@@ -42,7 +42,7 @@
         echo "Velkommen, $email!";
     } else {
         // Viser brukeren ikke er loget inn
-        echo "";
+        echo "hallo";
     }
     ?>
   <div class="image-container">
