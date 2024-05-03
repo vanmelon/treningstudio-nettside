@@ -106,6 +106,8 @@ if (isset($_POST['login'])) {
     }
 }
 
+// Lukk tilkoblingen
+$conn->close();
 ?>
 </body>
 </html>

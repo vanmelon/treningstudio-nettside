@@ -63,6 +63,9 @@ $username = "remote";
 $password = "Skole123";
 $dbname = "medlemer";
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 // Kobler til databasen
 $conn = new mysqli($servername, $username, $password, $dbname);
 
