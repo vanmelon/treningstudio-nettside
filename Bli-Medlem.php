@@ -59,7 +59,7 @@ session_start();
 
 // kobler til databasen
 $servername = "172.20.128.28";
-$username ="root"
+$username ="Adminer"
 $password ="Skole123"
 $dbname = "medlemer";
 
