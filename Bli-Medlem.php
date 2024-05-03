@@ -57,11 +57,9 @@
 <?php
 session_start();
 
-// Angi databasedetaljene her
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "prosjekt";
+// kobler til databasen
+$servername = "172.20.128.28";
+$dbname = "medlemer";
 
 try {
     //kobler til serveren og databasen
@@ -81,7 +79,7 @@ if (isset($_POST['register'])) {
             echo 'Fyll inn alle felter';
         } else {
             // sjekker om epost finnes
-            $sth = $pdo->prepare('SELECT * FROM prosjektledere WHERE epost = ?');
+            $sth = $pdo->prepare('SELECT * FROM brukere WHERE epost = ?');
             $sth->execute([$epost]);
             $user = $sth->fetch(PDO::FETCH_ASSOC);
 
@@ -89,10 +87,10 @@ if (isset($_POST['register'])) {
                 echo "Eposten er allerede i bruk.";
             } else {
                 // Oppretter ny bruker
-                $sth = $pdo->prepare('INSERT INTO prosjektledere (epost, passord) VALUES (?, ?)');
+                $sth = $pdo->prepare('INSERT INTO brukere (epost, passord) VALUES (?, ?)');
                 if ($sth->execute([$epost, $password])) {
                     // Brukeren ble registrert, omdiriger til en annen side for å unngå form re-submission
-                    header("Location: etterRegistrering.php");
+                    header("Location: log-inn.php");
                     exit;
                 }
             }
