@@ -96,7 +96,7 @@ if (isset($_POST['login'])) {
         if (password_verify($passord, $user['passord'])) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_epost'] = $user['epost'];
-            header("Location: treningstudio-nettside/index.php");
+            header("Location: index.php");
             exit;
         } else {
             echo "Feil brukernavn eller passord.";
