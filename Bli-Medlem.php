@@ -42,7 +42,7 @@
 
 <main>
     <div class="register-box">
-        <h1>Ikke brukernavn? Registrer deg:</h1>
+        <h1>Ikke bruker? Registrer deg:</h1>
         <form method="post">
             <label>E-post: <input type="email" name="email"></label> <br>
             <label>Passord: <input type="password" name="password"></label> <br>
@@ -67,6 +67,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // Kobler til databasen
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 // Sjekk tilkoblingen
 if ($conn->connect_error) {
