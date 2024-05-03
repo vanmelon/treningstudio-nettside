@@ -26,6 +26,25 @@
   </header>
 
   <main class="image-grid">
+      <?php
+
+      // Starter en sesjon
+      session_start();
+      // Angi databasedetaljene her
+      $servername = "172.20.128.28";
+      $username = "remote";
+      $password = "Skole123";
+      $dbname = "medlemer";
+    // Sjekker om brukeren er logget inn (om e-posten er satt i sesjonen)
+    if (isset($_SESSION['email'])) {
+        $email = $_SESSION['email'];
+        // Viser velkomstmeldingen med brukerens e-post
+        echo "Velkommen, $email!";
+    } else {
+        // Viser brukeren ikke er loget inn
+        echo "";
+    }
+    ?>
   <div class="image-container">
     <img src="bilder/alina-chernysheva-JA2S6sJWleg-unsplash.jpg" alt="Bilde 1" style="max-width: 30%; height: auto;">
     <p>Tekst for bilde 1</p>
@@ -39,8 +58,6 @@
     <p>Tekst for bilde 3</p>
   </div>
 </main>
-
-
 
   <footer>
   </footer>

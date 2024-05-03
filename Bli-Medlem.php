@@ -56,6 +56,7 @@
                 $password = "Skole123";
                 $dbname = "medlemer";
 
+                // error handling
                 error_reporting(E_ALL);
                 ini_set('display_errors', 1);
 
@@ -106,9 +107,6 @@
 
 <footer>
 </footer>
-
-
-
 
 </body>
 </html>
