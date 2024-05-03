@@ -68,6 +68,8 @@ session_start();
 
 // Angi databasedetaljene her
 $servername = "172.20.128.28";
+$username ="root"
+$password ="Skole123"
 $dbname = "medlemer";
 
 try {

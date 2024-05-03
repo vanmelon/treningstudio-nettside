@@ -59,6 +59,8 @@ session_start();
 
 // kobler til databasen
 $servername = "172.20.128.28";
+$username ="root"
+$password ="Skole123"
 $dbname = "medlemer";
 
 try {
@@ -95,7 +97,6 @@ if (isset($_POST['register'])) {
                 }
             }
         }
-        //hvis den mister databasen (se linje 43-44)
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
