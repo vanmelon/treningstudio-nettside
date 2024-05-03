@@ -57,50 +57,53 @@
 <?php
 session_start();
 
-// kobler til databasen
+// Angi databasedetaljene her
 $servername = "172.20.128.28";
-$username ="root"
-$password ="Skole123"
+$username = "root";
+$password = "Skole123";
 $dbname = "medlemer";
 
-try {
-    //kobler til serveren og databasen
-    $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+// Kobler til databasen
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Sjekk tilkoblingen
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
-catch(PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
-}
-// registrering av ny bruker
+
+// Registrering av ny bruker
 if (isset($_POST['register'])) {
-    $epost = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-    $password = password_hash(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING), PASSWORD_BCRYPT);
-    
+    $epost = $conn->real_escape_string($_POST['email']);
+    $password = password_hash($conn->real_escape_string($_POST['password']), PASSWORD_BCRYPT);
+
     try {
-        if(empty($epost) || empty($password)){
+        if (empty($epost) || empty($password)) {
             echo 'Fyll inn alle felter';
         } else {
-            // sjekker om epost finnes
-            $sth = $pdo->prepare('SELECT * FROM brukere WHERE epost = ?');
-            $sth->execute([$epost]);
-            $user = $sth->fetch(PDO::FETCH_ASSOC);
+            // Sjekker om epost finnes
+            $sql = "SELECT * FROM brukere WHERE epost = '$epost'";
+            $result = $conn->query($sql);
 
-            if ($user) {
+            if ($result->num_rows > 0) {
                 echo "Eposten er allerede i bruk.";
             } else {
                 // Oppretter ny bruker
-                $sth = $pdo->prepare('INSERT INTO brukere (epost, passord) VALUES (?, ?)');
-                if ($sth->execute([$epost, $password])) {
+                $sql = "INSERT INTO brukere (epost, passord) VALUES ('$epost', '$password')";
+                if ($conn->query($sql) === TRUE) {
                     // Brukeren ble registrert, omdiriger til en annen side for å unngå form re-submission
                     header("Location: log-inn.php");
                     exit;
                 }
             }
         }
-    } catch (PDOException $e) {
+    } catch (Exception $e) {
         echo $e->getMessage();
     }
-} 
+}
+
+// Lukk tilkoblingen
+$conn->close();
 ?>
+
 </body>
 </html>
