@@ -63,5 +63,51 @@
 <footer>
 </footer>
 
+<?php
+session_start();
+
+// Angi databasedetaljene her
+$servername = "172.20.128.28";
+$username = "remote";
+$password = "Skole123";
+$dbname = "medlemer";
+
+// Kobler til databasen
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Sjekk tilkoblingen
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// brukeren loger seg inn
+if (isset($_POST['login'])) {
+    $epost = $conn->real_escape_string($_POST['epost']);
+    $passord = $conn->real_escape_string($_POST['password']);
+
+    //sjeker om at eposten fines
+    $sql = "SELECT * FROM brukere WHERE epost = '$epost'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
+
+        //sjeker om både epost og passord matcher det i databasen
+        if (password_verify($passord, $user['passord'])) {
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['user_epost'] = $user['epost'];
+            header("Location: index.php");
+            exit;
+        } else {
+            echo "Feil brukernavn eller passord.";
+        }
+    } else {
+        echo "Feil brukernavn eller passord.";
+    }
+}
+
+// Lukk tilkoblingen
+$conn->close();
+?>
 </body>
 </html>
