@@ -26,7 +26,7 @@
 </header>
 
 <main>
-    <div class="login-box">
+    <div class="register-box">
         <h1>Logg inn:</h1>
         <form method="post">
             <label>epost: <input type="email" name="epost"></label> <br>

@@ -16,6 +16,8 @@
             border: 2px solid #ccc;
             padding: 20px;
             border-radius: 10px;
+            margin-top: 19%;
+            margin-bottom: 19% ;
         }
     </style>
 </head>
