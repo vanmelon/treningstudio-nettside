@@ -91,7 +91,7 @@ if (isset($_POST['register'])) {
                 $sql = "INSERT INTO brukere (epost, passord) VALUES ('$epost', '$password')";
                 if ($conn->query($sql) === TRUE) {
                     // Brukeren ble registrert, omdiriger til en annen side for å unngå form re-submission
-                    header("Location: log-inn.php");
+                    header("Location: treningstudio-nettside/log-inn.php");
                     exit;
                 }
             }
