@@ -47,14 +47,7 @@
             <label>E-post: <input type="email" name="email"></label> <br>
             <label>Passord: <input type="password" name="password"></label> <br>
             <input type="submit" name="register" value="Registrer">
-        </form>
-    </div>
-</main>
-
-<footer>
-</footer>
-
-<?php
+            <?php
 session_start();
 
 // Angi databasedetaljene her
@@ -107,6 +100,14 @@ if (isset($_POST['register'])) {
 // Lukk tilkoblingen
 $conn->close();
 ?>
+        </form>
+    </div>
+</main>
+
+<footer>
+</footer>
+
+
 
 
 </body>
