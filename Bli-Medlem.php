@@ -67,7 +67,6 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // Kobler til databasen
-$mysqli = new mysqli("localhost","my_user","my_password","my_db");
 
 // Sjekk tilkoblingen
 if ($conn->connect_error) {
