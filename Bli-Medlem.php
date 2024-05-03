@@ -73,13 +73,11 @@ if ($conn->connect_error) {
 
 // Registrering av ny bruker
 if (isset($_POST['register'])) {
-    $epost = $conn->real_escape_string($_POST['email']);
-    $password = password_hash($conn->real_escape_string($_POST['password']), PASSWORD_BCRYPT);
+    if (!empty($_POST['email']) && !empty($_POST['password'])) {
+        $epost = $conn->real_escape_string($_POST['email']);
+        $password = password_hash($conn->real_escape_string($_POST['password']), PASSWORD_BCRYPT);
 
-    try {
-        if (empty($epost) || empty($password)) {
-            echo 'Fyll inn alle felter';
-        } else {
+        try {
             // Sjekker om epost finnes
             $sql = "SELECT * FROM brukere WHERE epost = '$epost'";
             $result = $conn->query($sql);
@@ -95,15 +93,18 @@ if (isset($_POST['register'])) {
                     exit;
                 }
             }
+        } catch (Exception $e) {
+            echo $e->getMessage();
         }
-    } catch (Exception $e) {
-        echo $e->getMessage();
+    } else {
+        echo "Fyll inn alle felter.";
     }
 }
 
 // Lukk tilkoblingen
 $conn->close();
 ?>
+
 
 </body>
 </html>
