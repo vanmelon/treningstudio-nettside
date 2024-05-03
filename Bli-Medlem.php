@@ -46,60 +46,60 @@
         <form method="post">
             <label>E-post: <input type="email" name="email"></label> <br>
             <label>Passord: <input type="password" name="password"></label> <br>
-            <input type="submit" name="register" value="Registrer">
-            <?php
-session_start();
+            <input type="submit" name="register" value="Registrer"> <br>
+                <?php
+                session_start();
 
-// Angi databasedetaljene her
-$servername = "172.20.128.28";
-$username = "remote";
-$password = "Skole123";
-$dbname = "medlemer";
+                // Angi databasedetaljene her
+                $servername = "172.20.128.28";
+                $username = "remote";
+                $password = "Skole123";
+                $dbname = "medlemer";
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+                error_reporting(E_ALL);
+                ini_set('display_errors', 1);
 
-// Kobler til databasen
-$conn = new mysqli($servername, $username, $password, $dbname);
+                // Kobler til databasen
+                $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Sjekk tilkoblingen
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Registrering av ny bruker
-if (isset($_POST['register'])) {
-    if (!empty($_POST['email']) && !empty($_POST['password'])) {
-        $epost = $conn->real_escape_string($_POST['email']);
-        $password = password_hash($conn->real_escape_string($_POST['password']), PASSWORD_BCRYPT);
-
-        try {
-            // Sjekker om epost finnes
-            $sql = "SELECT * FROM brukere WHERE epost = '$epost'";
-            $result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-                echo "Eposten er allerede i bruk.";
-            } else {
-                // Oppretter ny bruker
-                $sql = "INSERT INTO brukere (epost, passord) VALUES ('$epost', '$password')";
-                if ($conn->query($sql) === TRUE) {
-                    // Brukeren ble registrert, omdiriger til en annen side for å unngå form re-submission
-                    header("Location: treningstudio-nettside/log-inn.php");
-                    exit;
+                // Sjekk tilkoblingen
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
                 }
-            }
-        } catch (Exception $e) {
-            echo $e->getMessage();
-        }
-    } else {
-        echo "Fyll inn alle felter.";
-    }
-}
 
-// Lukk tilkoblingen
-$conn->close();
-?>
+                // Registrering av ny bruker
+                if (isset($_POST['register'])) {
+                    if (!empty($_POST['email']) && !empty($_POST['password'])) {
+                        $epost = $conn->real_escape_string($_POST['email']);
+                        $password = password_hash($conn->real_escape_string($_POST['password']), PASSWORD_BCRYPT);
+
+                        try {
+                            // Sjekker om epost finnes
+                            $sql = "SELECT * FROM brukere WHERE epost = '$epost'";
+                            $result = $conn->query($sql);
+
+                            if ($result->num_rows > 0) {
+                                echo "Eposten er allerede i bruk.";
+                            } else {
+                                // Oppretter ny bruker
+                                $sql = "INSERT INTO brukere (epost, passord) VALUES ('$epost', '$password')";
+                                if ($conn->query($sql) === TRUE) {
+                                    // Brukeren ble registrert, omdiriger til en annen side for å unngå form re-submission
+                                    header("Location: treningstudio-nettside/log-inn.php");
+                                    exit;
+                                }
+                            }
+                        } catch (Exception $e) {
+                            echo $e->getMessage();
+                        }
+                    } else {
+                        echo "Fyll inn alle felter.";
+                    }
+                }
+
+                // Lukk tilkoblingen
+                $conn->close();
+                ?>
         </form>
     </div>
 </main>
