@@ -56,7 +56,7 @@
         </form>
 
         <h1>Er ikke medlem?</h1>
-        <div id="tekst"><a href="Bli-medlem.php" class="nav-link">Registrer deg her</a></div>
+        <div id="tekst"><a href="Bli-Medlem.php" class="nav-link">Registrer deg her</a></div>
     </div>
 </main>
 
@@ -96,7 +96,7 @@ if (isset($_POST['login'])) {
         if (password_verify($passord, $user['passord'])) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_epost'] = $user['epost'];
-            header("Location: index.php");
+            header("Location: treningstudio-nettside/index.php");
             exit;
         } else {
             echo "Feil brukernavn eller passord.";
@@ -106,8 +106,6 @@ if (isset($_POST['login'])) {
     }
 }
 
-// Lukk tilkoblingen
-$conn->close();
 ?>
 </body>
 </html>
